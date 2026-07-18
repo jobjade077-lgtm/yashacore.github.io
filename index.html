@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YashaCore | Centro de la Verdad</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: #060B18; color: #FFFFFF; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+        
+        nav { position: absolute; top: 40px; right: 6%; }
+        nav button { background: transparent; border: 1px solid #3B82F6; color: #FFFFFF; padding: 12px 24px; margin-left: 10px; cursor: pointer; text-transform: uppercase; font-weight: 700; }
+        
+        .content-container { text-align: center; max-width: 800px; padding: 20px; }
+        .stage { display: none; }
+        .stage.active { display: block; }
+
+        h1 { font-size: 80px; margin-bottom: 10px; }
+        h2 { font-size: 28px; color: #3B82F6; margin-bottom: 20px; text-transform: uppercase; }
+        p { font-size: 20px; line-height: 1.6; color: #FFFFFF; } /* Corregido a blanco */
+
+        footer { position: absolute; bottom: 20px; font-size: 12px; color: #FFFFFF; text-align: center; }
+
+        /* Modal */
+        #modalTecnica { display: none; position: fixed; background: rgba(0,0,0,0.9); top:0; left:0; width: 100%; height: 100%; align-items: center; justify-content: center; z-index: 1000; }
+        #modalTecnica.active { display: flex; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button onclick="changeStage('stageHome')">INICIO</button>
+        <button onclick="changeStage('stageWhat')">¿QUÉ ES YASHACORE?</button>
+        <button onclick="changeStage('stageSeek')">¿QUÉ BUSCAMOS?</button>
+        <button onclick="document.getElementById('modalTecnica').classList.add('active')">MESA TÉCNICA</button>
+    </nav>
+
+    <div class="content-container">
+        <div id="stageHome" class="stage active">
+            <h1>YASHACORE</h1>
+            <h2>EL CENTRO DE LA VERDAD</h2>
+            <p>Desarrollamos soluciones lógicas de alta gama diseñadas para erradicar el desperdicio financiero y devolver la soberanía operativa.</p>
+        </div>
+
+        <div id="stageWhat" class="stage">
+            <h2>¿QUÉ ES YASHACORE?</h2>
+            <p>Representamos el Centro de la Verdad: un pilar inmutable diseñado para liberar a la arquitectura digital de redundancias artificiales.</p>
+        </div>
+
+        <div id="stageSeek" class="stage">
+            <h2>¿QUÉ BUSCAMOS?</h2>
+            <p>La soberanía operativa reside en la optimización honesta. Destruimos la asimetría de costes del mercado devolviendo la precisión matemática al origen.</p>
+        </div>
+    </div>
+
+    <!-- Formulario listo para conectar a Formspree (action="https://formspree.io/f/TU_ID_AQUI") -->
+    <div id="modalTecnica">
+        <div style="background:#0B1329; padding:40px; border: 1px solid #3B82F6; border-radius: 8px; width: 400px; color: white;">
+            <h2>MESA TÉCNICA</h2>
+            <form action="https://formspree.io/f/mzdnpzej" method="POST" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <input type="text" name="rol" placeholder="Rol Tecnológico" required style="padding:10px; background:#060B18; border:1px solid #3B82F6; color:white;">
+                <input type="email" name="email" placeholder="Correo Corporativo" required style="padding:10px; background:#060B18; border:1px solid #3B82F6; color:white;">
+                <button type="submit" style="padding:10px; background:#3B82F6; border:none; color:white; cursor:pointer;">Enviar Datos</button>
+                <button type="button" onclick="document.getElementById('modalTecnica').classList.remove('active')" style="padding:10px; background:transparent; border:1px solid #334155; color:white; cursor:pointer;">Cerrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 YashaCore. Todos los derechos reservados. Laboratorio de Innovación Continua.
+    </footer>
+
+    <script>
+        function changeStage(id) {
+            document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
